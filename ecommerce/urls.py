@@ -20,9 +20,11 @@ from produtos.api.viewsets import ProdutosViewSet
 from carrinho.api.viewsets import CarrinhoViewSet
 
 router = routers.DefaultRouter()
-router.register(r'ecommerce', ProdutosViewSet )
+router.register(r'produtos', ProdutosViewSet)
 router.register(r'carrinho', CarrinhoViewSet)
 urlpatterns = [
     path("", include(router.urls)),
     path("admin/", admin.site.urls),
+    path("carrinho/cadastro", CarrinhoViewSet.as_view({'get':'list'}))
+
 ]
