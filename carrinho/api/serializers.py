@@ -6,4 +6,4 @@ class CarrinhoSerializer(ModelSerializer):
     produto = ProdutoSerializer(many=True)
     class Meta:
         model= Carrinho
-        fields = ('produto', 'quantidade')
+        fields =('produto', 'quantidade_compra')

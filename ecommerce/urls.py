@@ -18,13 +18,15 @@ from django.urls import path, include
 from rest_framework import routers
 from produtos.api.viewsets import ProdutoViewSet
 from carrinho.api.viewsets import CarrinhoViewSet
+from rest_framework.authtoken.views import obtain_auth_token
 
 router = routers.DefaultRouter()
 router.register(r'produtos', ProdutoViewSet)
-router.register(r'carrinho', CarrinhoViewSet)
+router.register(r'carrinho', CarrinhoViewSet, basename='Carrinho')
 urlpatterns = [
     path("", include(router.urls)),
     path("admin/", admin.site.urls),
+    path('api-token-auth/',obtain_auth_token),
     path("carrinho/cadastro", CarrinhoViewSet.as_view({'get':'list'}))
 
 ]

@@ -4,8 +4,7 @@ from produtos.models import Produto
 # Create your models here.
 class Carrinho(models.Model):
     produto = models.ManyToManyField(Produto)
-    quantidade = models.IntegerField()
-
+    quantidade_compra = models.IntegerField()
 
 
 
