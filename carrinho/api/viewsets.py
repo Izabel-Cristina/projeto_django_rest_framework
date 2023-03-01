@@ -13,8 +13,6 @@ class CarrinhoViewSet(ModelViewSet):
     authentication_classes = [TokenAuthentication]
 
 
-
-
     # Sobrescrevendo uma ação Get (List)
     def list(self, request, *args, **kwargs):
         return super(CarrinhoViewSet, self).list(request, *args, **kwargs)

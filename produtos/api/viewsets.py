@@ -4,7 +4,6 @@ from .serializers import ProdutoSerializer
 from rest_framework import filters
 from django_filters.rest_framework import DjangoFilterBackend
 
-
 class ProdutoViewSet(ModelViewSet):
     queryset = Produto.objects.all()
     serializer_class = ProdutoSerializer
