@@ -1,4 +1,4 @@
-"""ecommerce URL Configuration
+"""core URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/4.1/topics/http/urls/
@@ -20,18 +20,19 @@ from produtos.api.viewsets import ProdutoViewSet
 
 from carrinho.api.viewsets import CarrinhoViewSet
 from rest_framework.authtoken.views import obtain_auth_token
-from carrinho.views import CarrinhoView
+
 
 router = routers.DefaultRouter()
 router.register(r'produtos', ProdutoViewSet)
 router.register(r'carrinho', CarrinhoViewSet, basename='carrinho')
 
 
+
+
 urlpatterns = [
     path("", include(router.urls)),
     path("admin/", admin.site.urls),
     path('api-token-auth/',obtain_auth_token),
-    path('valor/', CarrinhoView.as_view()),
-    path("carrinho/cadastro", CarrinhoViewSet.as_view({'get':'list'}))
+    path('', include('carrinho.urls')),
 
 ]
